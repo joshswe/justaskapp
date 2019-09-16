@@ -12,6 +12,7 @@ The backend of the application was built first, followed by the frontend interfa
 
 
 # Requirements
+
 ## Authentication Page
 - Login Fields
     - Username
@@ -58,3 +59,25 @@ The backend of the application was built first, followed by the frontend interfa
 ## Ask a question page
 - Text field area for the question
 - Publish button
+
+
+# Configuration
+
+## Create a virtual environment in the directory
+In Windows environment:
+`python -m venv ./venv`
+`source ./venv/Scripts/activate`
+
+## Install packages
+- Django and Django Rest Framework:
+`pip install django djangorestframework`
+- View installed packages:
+`pip freeze`
+- Export the list of installed packages to requirements.txt:
+`pip freeze > requirements.txt`
+
+## Django
+- Initialize the project:
+`django-admin startproject JustAsk .`
+- Create *users* application:
+`python manage.py startapp users`
