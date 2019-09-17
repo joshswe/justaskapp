@@ -127,7 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = "accounts/login/"
+LOGIN_URL = "/accounts/login/"
 
 # Users will be redirected to home page after login/logout
 LOGIN_REDIRECT_URL = "/"
