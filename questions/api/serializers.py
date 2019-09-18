@@ -1,6 +1,8 @@
 from rest_framework import serializers
 from questions.models import Answer,Question
 
+# Answer Serializer
+
 class AnswerSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(read_only=True)
     created_at = serializers.SerializerMethodField()
@@ -20,6 +22,9 @@ class AnswerSerializer(serializers.ModelSerializer):
     def get_user_has_voted(self,instance):
         request = self.context.get("request")
         return instance.votes.filter(pk=request.user.pk).exists()
+
+
+# Question Serializer
 
 class QuestionSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField(read_only=True)
