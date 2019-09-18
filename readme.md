@@ -95,13 +95,15 @@ In Windows environment:
 # Testing
 
 ## Slug
-`python manage.py shell`
-`>>> from django.contrib.auth import get_user_model`
-`>>> custom_user = get_user_model()`
-`>>> u = custom_user.objects.first()`
-`>>> u`
-`<CustomUser: joshua>`
-`>>> from questions.models import Question`
-`>>> q = Question.objects.create(author=u, content="First Question!")`
-`>>> q.slug`
-`'first-question-8cb6ay'`
+```
+python manage.py shell
+>>> from django.contrib.auth import get_user_model
+>>> custom_user = get_user_model()
+>>> u = custom_user.objects.first()
+>>> u
+<CustomUser: joshua>
+>>> from questions.models import Question
+>>> q = Question.objects.create(author=u, content="First Question!")
+>>> q.slug
+'first-question-8cb6ay'
+```
