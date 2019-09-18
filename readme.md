@@ -91,6 +91,7 @@ In Windows environment:
 # Additional Resources
 - [Using a custom user model](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/)
 - [django-registration Documentation](https://buildmedia.readthedocs.org/media/pdf/django-registration/3.0/django-registration.pdf)
+- [DRF - Permissions](https://www.django-rest-framework.org/api-guide/permissions/)
 
 # Testing
 
