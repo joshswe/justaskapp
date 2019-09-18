@@ -165,7 +165,10 @@ REST_FRAMEWORK = {
     # Setting the permission policy
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticated',
+    ),
 
-
-    )
+    'DEFAULT_PAGINATION_CLASSES':(
+        'rest_framework.pagination.PageNumberPagination',
+    ),
+    'PAGE_SIZE': 2
 }
