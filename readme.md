@@ -10,8 +10,12 @@ The backend of the application was built first, followed by the frontend interfa
 - Django Rest Framework
 - VueJS
 
+## Libraries
+- [django-registration](https://django-registration.readthedocs.io/en/3.0.1/): An extensible application providing user registration functionality for Django-powered Web sites
+
 
 # Requirements
+
 ## Authentication Page
 - Login Fields
     - Username
@@ -58,3 +62,32 @@ The backend of the application was built first, followed by the frontend interfa
 ## Ask a question page
 - Text field area for the question
 - Publish button
+
+
+# Configuration
+
+## Create a virtual environment in the directory
+In Windows environment:
+`python -m venv ./venv`
+`source ./venv/Scripts/activate`
+
+## Install packages
+- Django and Django Rest Framework:
+`pip install django djangorestframework`
+- View installed packages:
+`pip freeze`
+- Export the list of installed packages to requirements.txt:
+`pip freeze > requirements.txt`
+- Django Rest Auth:
+`pip install django-rest-auth`
+
+## Django
+- Initialize the project:
+`django-admin startproject JustAsk .`
+- Create *users* application:
+`python manage.py startapp users`
+
+
+# Additional Resources
+- [Using a custom user model](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/)
+- [django-registration Documentation](https://buildmedia.readthedocs.org/media/pdf/django-registration/3.0/django-registration.pdf)
