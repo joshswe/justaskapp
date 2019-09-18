@@ -91,3 +91,17 @@ In Windows environment:
 # Additional Resources
 - [Using a custom user model](https://docs.djangoproject.com/en/2.2/topics/auth/customizing/)
 - [django-registration Documentation](https://buildmedia.readthedocs.org/media/pdf/django-registration/3.0/django-registration.pdf)
+
+# Testing
+
+## Slug
+`python manage.py shell`
+`>>> from django.contrib.auth import get_user_model`
+`>>> custom_user = get_user_model()`
+`>>> u = custom_user.objects.first()`
+`>>> u`
+`<CustomUser: joshua>`
+`>>> from questions.models import Question`
+`>>> q = Question.objects.create(author=u, content="First Question!")`
+`>>> q.slug`
+`'first-question-8cb6ay'`
