@@ -9,6 +9,8 @@ The backend of the application was built first, followed by the frontend interfa
 - Django
 - Django Rest Framework
 - VueJS
+    - Vue CLI (Vue Command Line Interface): 
+        A full system for rapid Vue.js development and project scaffolding
 
 ## Libraries
 - [django-registration](https://django-registration.readthedocs.io/en/3.0.1/): An extensible application providing user registration functionality for Django-powered Web sites
@@ -93,9 +95,9 @@ In Windows environment:
 - [django-registration Documentation](https://buildmedia.readthedocs.org/media/pdf/django-registration/3.0/django-registration.pdf)
 - [DRF - Permissions](https://www.django-rest-framework.org/api-guide/permissions/)
 
-# Testing
+# Commands
 
-## Slug
+## Slug Testing
 ```
 python manage.py shell
 >>> from django.contrib.auth import get_user_model
@@ -108,3 +110,11 @@ python manage.py shell
 >>> q.slug
 'first-question-8cb6ay'
 ```
+
+## Vue CLI
+In Node.js Command Prompt:
+- Install Vue CLI: `npm i -g @vue/cli`
+- Create Vue project: `vue create <project-name>`
+- Run Vue project: `npm run serve`
+
+- `django-webpack-loader`

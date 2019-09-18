@@ -52,7 +52,9 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
-    'questions'
+    'questions',
+
+    'webpack_loader'
 ]
 
 MIDDLEWARE = [
@@ -171,4 +173,12 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagination',
     ),
     'PAGE_SIZE': 2
+}
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME':'dist/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
+    }
 }
