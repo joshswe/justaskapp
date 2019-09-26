@@ -9,8 +9,9 @@ from questions.api.serializers import QuestionSerializer, AnswerSerializer
 from questions.models import Question, Answer
 from questions.api.permissions import IsAuthorOrReadOnly
 
+# Provide CRUD functionality for questions
 class QuestionViewSet(viewsets.ModelViewSet):
-
+    
     queryset = Question.objects.all()
     lookup_field = "slug"
     serializer_class = QuestionSerializer
@@ -22,6 +23,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
 
+# Allow users to answer a question instance if they haven't already
 class AnswerCreateAPIView(generics.CreateAPIView):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
@@ -37,7 +39,9 @@ class AnswerCreateAPIView(generics.CreateAPIView):
         serializer.save(author=self.request.user, question=question)
 
 
+# Provide the answers queryset of a specific question
 class AnswerListAPIView(generics.ListAPIView):
+    
     serializer_class = AnswerSerializer
     permission_classes = [IsAuthenticated]
 
@@ -46,13 +50,14 @@ class AnswerListAPIView(generics.ListAPIView):
         return Answer.objects.filter(question__slug=kwarg_slug).order_by("-created_at")
 
 
-# RUD means retrieve, update and destroy
+# Provide RUD (retrieve, update and destroy) functionality for an answer instance to its author
 class AnswerRUDAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
     permission_classes = [IsAuthenticated,IsAuthorOrReadOnly]
 
 
+# Allow users to add/remove like to/from an answer instance
 class AnswerLikeAPIView(APIView):
     serializer_class = AnswerSerializer
     permission_classes = [IsAuthenticated]
