@@ -26,7 +26,7 @@ function apiService(endpoint,method,data){
 
 
     //The fetch() method takes two parameters — the URL that you are requesting (or a Request object) and an “options” object
-    return fetch(endpoint) // The fetch() method returns a Promise that resolves to the Response to that request
+    return fetch(endpoint,config) // The fetch() method returns a Promise that resolves to the Response to that request
         .then(getJSON) // Perform the getJSON function once the Promise is fullfilled
         .catch(error => console.log(error))
 }

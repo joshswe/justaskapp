@@ -172,7 +172,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASSES':(
         'rest_framework.pagination.PageNumberPagination',
     ),
-    'PAGE_SIZE': 2
+    'PAGE_SIZE': 5
 }
 
 

@@ -1,13 +1,19 @@
 <template>
     <div class="home">
         <div class="container">
+            <!-- Display a list of question in Home Page -->
             <div v-for="question in questions" :key="question.pk">
                 <p class="mb-0">
                     Posted by:
-                    <span>{{ question.author }}</span>
+                    <span class="question-author">{{ question.author }}</span>
                 </p>
-                <h2>{{ question.content }}</h2>
+                <h2>
+                    <router-link :to="{ name: 'question', params : { slug: question.slug } }" class="question-link">
+                        {{ question.content }}
+                    </router-link>
+                </h2>
                 <p>Answers: {{ question.answers_count }}</p>
+                <hr>
             </div>
         </div>
     </div>
@@ -27,7 +33,8 @@ export default {
         getQuestions() {
             // API endpoints were set in Django REST
             let endpoint = "/api/questions/";
-            console.log("getQuestions function is called!");
+
+
             // console.log("apiService(endpoint) returns:", apiService(endpoint))
             // apiService(endpoint).then(response => { 
             //   console.log(response.clone().json())
@@ -48,6 +55,25 @@ export default {
         console.log("Instance Lifecycle Hooks begins!");
         this.getQuestions();
         console.log("Questions:", this.questions);
+        document.title = "Home - JustAsk!"
     }
 };
 </script>
+
+<style scoped>
+
+.question-author {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.question-link {
+    font-weight: bold;
+    color: black;
+}
+
+.question-link:hover {
+    color: #343a40;
+    text-decoration: none;
+}
+</style>

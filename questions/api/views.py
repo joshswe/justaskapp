@@ -12,7 +12,7 @@ from questions.api.permissions import IsAuthorOrReadOnly
 # Provide CRUD functionality for questions
 class QuestionViewSet(viewsets.ModelViewSet):
     
-    queryset = Question.objects.all()
+    queryset = Question.objects.all().order_by("-created_at")
     lookup_field = "slug"
     serializer_class = QuestionSerializer
 
