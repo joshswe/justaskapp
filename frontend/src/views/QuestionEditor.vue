@@ -36,7 +36,7 @@ export default {
                 apiService(endpoint,method, {content: this.question_body })
                     .then(question_data => {
 
-                        // Navigate to a different URL
+                        // Navigate to the new question URL: /question/<quesiton slug>
                         this.$router.push({ name: 'question', 
                                             params : { slug: question_data.slug } })
                     })
