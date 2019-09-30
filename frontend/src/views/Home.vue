@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <div class="container">
+            <br>
             <!-- Display a list of question in Home Page -->
             <div v-for="question in questions" :key="question.pk">
                 <p class="mb-0">
@@ -15,20 +16,24 @@
                 <p>Answers: {{ question.answers_count }}</p>
                 <hr>
             </div>
+            <!-- Load more questions button will be implemented later
             <div class="my-4">
                 <p v-show="loadingQuestions">...loading...</p>
                 <button v-show="next" @click="getQuestions" class="btn btn-sm btn-outline-success">
                     Load More
                 </button>
             
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script>
+// Import functions/components
 import { apiService } from "../common/api.service";
 import  { getJSON} from "../common/api.service";
+
+// Create local registration for Vue component
 export default {
     name: "home",
     data() {
@@ -46,6 +51,8 @@ export default {
                 endpoint = this.next;
             }
             this.loadingQuestions = true;
+
+            // //Test the promise
             // console.log("apiService(endpoint) returns:", apiService(endpoint))
             // apiService(endpoint).then(response => { 
             //   console.log(response.clone().json())

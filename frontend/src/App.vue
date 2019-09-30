@@ -1,21 +1,30 @@
 <template>
     <div id="app">
         <NavbarComponent />
-        <!-- <div id="nav">
-            <router-link to="/">Home</router-link>|
-            <router-link to="/about">About</router-link>|
-            <router-link to="/example">Example</router-link>
-        </div> -->
         <router-view />
     </div>
 </template>
 
 <script>
 import NavbarComponent from "./components/Navbar.vue"
+import { apiService } from "./common/api.service.js"
 export default {
   name:"App",
   components: {
     NavbarComponent
+  },
+  methods: {
+    // Set the user info into window local storage
+    async setUserInfo(){
+      // The await operator is used to wait for a Promise. It can only be used inside an async function.
+      const data = await apiService("/api/user/");
+      const requestUser = data["username"];
+      window.localStorage.setItem("username", requestUser);
+
+    }
+  },
+  created(){
+    this.setUserInfo()
   }
 }
 </script>

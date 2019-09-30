@@ -45,15 +45,20 @@
             <AnswerComponent
                 v-for="(answer,index) in answers"
                 :answer="answer"
+                :requestUser="requestUser"
                 :key="index"
+                @delete-answer="deleteAnswer"
             />
         </div>
     </div>
 </template>
 
 <script>
+// Import functions/components
 import { apiService } from "../common/api.service";
 import AnswerComponent from "../components/Answer.vue";
+
+// Create local registration for Vue component
 export default {
     name: "Question",
     props: {
@@ -73,6 +78,7 @@ export default {
             error: null,
             userHasAnswered: false,
             showForm: false,
+            requestUser: null,
         }
     },
     methods: {
@@ -98,11 +104,14 @@ export default {
                     this.answers = data;
                 })
         },
+
+        // Run this function when the Submit button is clicked
         onSubmit(){
             if(this.newAnswerBody){
                 let endpoint = `/api/questions/${this.slug}/answer/`;
                 apiService(endpoint, "POST", {body:this.newAnswerBody})
                     .then(data => {
+                        // Add the new answer to the beginning of the "answers" array
                         this.answers.unshift(data)
                     })
                 this.newAnswerBody = null;
@@ -114,11 +123,27 @@ export default {
             } else{
                 this.error = "You can't send an empty answer!";
             }
+        },
+        setRequestUser(){
+            this.requestUser = window.localStorage.getItem("username");
+        },
+        async deleteAnswer(answer){
+            let endpoint = `/api/answer/${answer.id}/`;
+            try {
+                await apiService(endpoint, "DELETE")
+                this.$delete(this.answers,this.answers.indexOf(answer))
+                this.userHasAnswered = false;
+
+            }
+            catch (err){
+                console.log(err)
+            }
         }
     },
     created: function() {
         this.getQuestionData();
         this.getQuestionsAnswers();
+        this.setRequestUser();
         }
     }
 </script>
