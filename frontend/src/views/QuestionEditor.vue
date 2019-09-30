@@ -7,7 +7,7 @@
                     class="form-control" 
                     placeholder="Edit Your Question Here"></textarea>
             <br>
-            <button type="submit" class="btn btn-success">Publish</button>
+            <button type="submit" class="btn btn-success">Edit</button>
         </form>
         <p v-if="error" class="muted mt-2">{{ error }}</p>
     </div>
@@ -17,6 +17,12 @@
 import { apiService } from "../common/api.service";
 export default {
     name: "QuestionEditor",
+    props: {
+        slug: {
+            type: String,
+            required: false
+        }
+    },
     data() {
         return {
             question_body: null,
@@ -24,7 +30,7 @@ export default {
         }
     },
     methods:{
-        // Validate the user's input
+        
         onSubmit(){
             if (!this.question_body){
                 this.error = "You can't send an empty question!";
@@ -33,6 +39,12 @@ export default {
             } else {
                 let endpoint = "/api/questions/";
                 let method = "POST";
+
+                // User is editing the question if there is a slug
+                if (this.slug !== undefined){
+                    endpoint += `${ this.slug }/`;
+                    method = "PUT";
+                }
                 apiService(endpoint,method, {content: this.question_body })
                     .then(question_data => {
 
@@ -43,8 +55,19 @@ export default {
             }
         }
     },
+    async beforeRouteEnter(to,from,next){
+        // Check does the question exist by validating the slug
+        if (to.params.slug !== undefined){
+            // GET request is made to get the content of the question that the user tries to edit
+            let endpoint = `/api/questions/${ to.params.slug }/`;
+            let data = await apiService(endpoint);
+            return next(vm => (vm.question_body = data.content))
+        } else {
+            return next()
+        }
+    },
     created() {
-        document.totle =" Edit Your Question";
+        document.title =" Edit Your Question";
     }
 }
 </script>
