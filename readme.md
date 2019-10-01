@@ -22,8 +22,6 @@ The backend of the application was built first, followed by the frontend interfa
     + [Slug Testing](#slug-testing)
     + [Vue CLI](#vue-cli)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ## Main Technologies
 - Django
@@ -39,10 +37,10 @@ The backend of the application was built first, followed by the frontend interfa
 - User will be asked to enter the correct username and/ or password if the incorrect credentials were entered
 - User will be directed to “JustAsk!” homepage after successful login, he or she can choose to logout anytime
 
-![Authentication Demo](/demo-gif/1.authentication_logout.gif){:height="50%" width="50%"}
+![Authentication Demo](/demo-gif/1.authentication_logout.gif)
 
 ### 2 - Account Creation
-![Account Creation Demo](/demo-gif/2.accountcreation.gif){:height="50%" width="50%"}
+![Account Creation Demo](/demo-gif/2.accountcreation.gif)
 
 ### 3 - Question Component
 -	Ask new question
@@ -54,7 +52,7 @@ The backend of the application was built first, followed by the frontend interfa
 -	Delete the question
     - User can only delete his/her own question, this cannot be undone
 
-![Question Component Demo](/demo-gif/3.question_add-edit-delete.gif){:height="50%" width="50%"}
+![Question Component Demo](/demo-gif/3.question_add-edit-delete.gif)
 
 ### 4 - Answer Component
 -	Each question has a counter (in the homepage) to count its number of answers
@@ -70,10 +68,10 @@ The backend of the application was built first, followed by the frontend interfa
     - User can only like or unlike the other users’ answers
     - Each answer has its own counter to count how many people like that answer
 
-![Answer Component Demo](/demo-gif/4.answer_add-edit-delete-like.gif){:height="50%" width="50%"}
+![Answer Component Demo](/demo-gif/4.answer_add-edit-delete-like.gif)
 
 ### 5 - 404 Not Found
-![404 Not Found Demo](/demo-gif/5.404NotFound.gif){:height="50%" width="50%"}
+![404 Not Found Demo](/demo-gif/5.404NotFound.gif)
 
 
 ## Configuration
