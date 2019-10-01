@@ -7,6 +7,7 @@ The backend of the application was built first, followed by the frontend interfa
 
 ## Table of Contents
 - [Main Technologies](#main-technologies)
+- [REST APIs](#rest-apis)
 - [Demo](#demo)
   * [1 - Authentication](#1---authentication)
   * [2 - Account Creation](#2---account-creation)
@@ -28,6 +29,11 @@ The backend of the application was built first, followed by the frontend interfa
 - Django Rest Framework
 - Vue.JS
 - Node.JS
+- Postman
+
+
+## REST APIs
+All the APIs were built in Django REST Framework, read [api.md](/api.md) for more
 
 
 ## Demo
