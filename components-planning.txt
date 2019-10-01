@@ -1,0 +1,48 @@
+## Requirements
+
+#### Authentication Page
+- Login Fields
+    - Username
+    - Password
+- Option to create a new account
+
+#### Account Creation Page 
+- Account Fields
+    - Username
+    - Email address
+    - Password
+    - Password confirmation
+
+#### Main Page
+- Options/ Buttons
+    - Home 
+    - Ask a question
+    - Logout
+- List of questions
+    - Title
+    - Author
+    - Number of answers
+- Load more button 
+    - At the bottom of the page
+
+#### Question Page
+- Question title
+- Author
+- Published date
+- List of replies
+    - Author
+    - Published date
+    - Number of likes
+- Has the user answered the question?
+    - Yes
+        - Option to answer the question
+        - Answer field
+        - Submit button
+    - No
+        - Message that indicates the user has already answered the question
+        - Option to edit the answer
+        - Option to delete the answer
+
+#### Ask a question page
+- Text field area for the question
+- Publish button
