@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavbarComponent />
+        <NavbarComponent :currentUser="currentUser"/>
         <router-view />
     </div>
 </template>
@@ -20,7 +20,14 @@ export default {
       const data = await apiService("/api/user/");
       const requestUser = data["username"];
       window.localStorage.setItem("username", requestUser);
+      this.currentUser = window.localStorage.getItem("username");
+      
 
+    }
+  },
+  data(){
+    return {
+      currentUser: null,
     }
   },
   created(){

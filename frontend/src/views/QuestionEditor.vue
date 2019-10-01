@@ -7,7 +7,7 @@
                     class="form-control" 
                     placeholder="Edit Your Question Here"></textarea>
             <br>
-            <button type="submit" class="btn btn-success">Edit</button>
+            <button type="submit" class="btn btn-success">Publish</button>
         </form>
         <p v-if="error" class="muted mt-2">{{ error }}</p>
     </div>
@@ -67,7 +67,7 @@ export default {
         }
     },
     created() {
-        document.title =" Edit Your Question";
+        document.title = "Add or Edit Your Question";
     }
 }
 </script>

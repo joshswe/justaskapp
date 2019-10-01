@@ -11,7 +11,7 @@
                     <router-link :to="{ name: 'question-editor' }" class="btn btn-sm btn-danger">Ask Question</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-sm btn-outline-secondary" href="/accounts/logout/">Logout</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/accounts/logout/">Welcome {{ currentUser }},Logout</a>
                 </li>
             </ul>
         </div>
@@ -21,7 +21,13 @@
 
 <script>
 export default {
-    name: "NavbarComponent"
+    name: "NavbarComponent",
+    props: {
+        currentUser: {
+            type: String,
+            required: true,
+        }
+    }
 };
 </script>
 
